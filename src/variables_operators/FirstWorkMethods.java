@@ -13,7 +13,7 @@ public class FirstWorkMethods {
      * @return the reminder after x / y
      */
     public static int countReminder(int x, int y) {
-        return x - x / y * y;
+        return (y == 0 ? -1 : x - x / y * y);
     }
 
     /**
@@ -52,7 +52,10 @@ public class FirstWorkMethods {
        System.out.printf("%d + %d = %d\n", x, y, (x + y));
        System.out.printf("%d - %d = %d\n", x, y, (x - y));
        System.out.printf("%d * %d = %d\n", x, y, (x * y));
-       System.out.printf("%d / %d = %d\n", x, y, (x / y));
+
+       if (y != 0) {
+           System.out.printf("%d / %d = %d\n", x, y, (x / y));
+       }
    }
 
     /**
@@ -208,7 +211,8 @@ public class FirstWorkMethods {
      * @return the number of digits
      */
    public static int countDigits(int number) {
-       return getLengthOfString(convertIntToString(number));
+       int length = getLengthOfString(convertIntToString(number));
+       return (number >= 0 ? length : length - 1);
    }
 
     /**

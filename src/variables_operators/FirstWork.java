@@ -163,7 +163,8 @@ public class FirstWork {
         /*
         // 22. print the number of digits of a number
         int x = 12345;
-        System.out.println(String.valueOf(x).length());
+        int length = String.valueOf(x).length();
+        System.out.println((x >= 0 ? length : length - 1));
          */
 
         /*
