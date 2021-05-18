@@ -5,16 +5,6 @@ import helpers.ArraysForTask;
 public class ArrayIfLoop {
 
     // Melyik adattípusú tömb a leghosszabb?
-    public static String[] collectTypeWithLength() {
-        String[] typeWithLength = new String[5];
-        typeWithLength[0] = ArraysForTask.bytes.getClass().getSimpleName() + " " + ArraysForTask.bytes.length;
-        typeWithLength[1] = ArraysForTask.chars.getClass().getSimpleName() + " " + ArraysForTask.chars.length;
-        typeWithLength[2] = ArraysForTask.ints.getClass().getSimpleName() + " " + ArraysForTask.ints.length;
-        typeWithLength[3] = ArraysForTask.doubles.getClass().getSimpleName() + " " + ArraysForTask.doubles.length;
-        typeWithLength[4] = ArraysForTask.strings.getClass().getSimpleName() + " " + ArraysForTask.strings.length;
-        return typeWithLength;
-    }
-
     public static String findLongestArr() {
         String[] typeWithLength = collectTypeWithLength();
         int max = 0;
@@ -28,6 +18,18 @@ public class ArrayIfLoop {
             }
         }
         return type;
+    }
+
+    public static String[] collectTypeWithLength() {
+        String[] typeWithLength = new String[5];
+
+        typeWithLength[0] = ArraysForTask.bytes.getClass().getSimpleName() + " " + ArraysForTask.bytes.length;
+        typeWithLength[1] = ArraysForTask.chars.getClass().getSimpleName() + " " + ArraysForTask.chars.length;
+        typeWithLength[2] = ArraysForTask.ints.getClass().getSimpleName() + " " + ArraysForTask.ints.length;
+        typeWithLength[3] = ArraysForTask.doubles.getClass().getSimpleName() + " " + ArraysForTask.doubles.length;
+        typeWithLength[4] = ArraysForTask.strings.getClass().getSimpleName() + " " + ArraysForTask.strings.length;
+
+        return typeWithLength;
     }
 
     // Add össze a tömbök értékét külön-külön!
