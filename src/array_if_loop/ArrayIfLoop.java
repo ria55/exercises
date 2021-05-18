@@ -74,10 +74,10 @@ public class ArrayIfLoop {
     }
 
     // Hány negatív és hány pozitív szám szerepel a bytes, az ints és a doubles nevű tömbökben?
-    public static int countNegOrPosInByteArr(boolean countPositive) {
+    public static int countNegOrPos(byte[] bytes, boolean countPositive) {
         int countNeg = 0, countPos = 0;
 
-        for (byte b : ArraysForTask.bytes) {
+        for (byte b : bytes) {
             if (b > 0) {
                 countPos++;
             } else if (b < 0) {
@@ -88,10 +88,10 @@ public class ArrayIfLoop {
         return countPositive ? countPos : countNeg;
     }
 
-    public static int countNegOrPosInIntArr(boolean countPositive) {
+    public static int countNegOrPos(int[] ints, boolean countPositive) {
         int countNeg = 0, countPos = 0;
 
-        for (int i : ArraysForTask.ints) {
+        for (int i : ints) {
             if (i > 0) {
                 countPos++;
             } else if (i < 0) {
@@ -102,10 +102,10 @@ public class ArrayIfLoop {
         return countPositive ? countPos : countNeg;
     }
 
-    public static int countNegOrPosInDoubleArr(boolean countPositive) {
+    public static int countNegOrPos(double[] doubles, boolean countPositive) {
         int countNeg = 0, countPos = 0;
 
-        for (double d : ArraysForTask.doubles) {
+        for (double d : doubles) {
             if (d > 0) {
                 countPos++;
             } else if (d < 0) {
@@ -117,10 +117,10 @@ public class ArrayIfLoop {
     }
 
     // Hány darab olyan karakter szerepel a chars nevű tömbben, amelyik nem az ABC egyik betűje?
-    public static int countNonLetters() {
+    public static int countNonLetters(char[] chars) {
         int nonLetter = 0;
 
-        for (char c : ArraysForTask.chars) {
+        for (char c : chars) {
             if (!Character.isLetter(c)) {
                 nonLetter++;
             }
@@ -131,16 +131,29 @@ public class ArrayIfLoop {
 
     // Melyik a leghosszabb eleme a strings nevű tömbnek? (Elfogadható válaszok: maga az elem VAGY az elem indexe VAGY az elem sorszáma
     // - de tüntesd fel, hogy melyiket írod.)
-    public static String findLongestElement() {
+    public static String findLongestElement(String[] strings) {
         int maxLength = 0;
         String result = "";
-        for (String s : ArraysForTask.strings) {
+        for (String s : strings) {
             if (s.length() > maxLength) {
                 maxLength = s.length();
                 result = "";
             }
         }
         return result;
+    }
+
+    public static String[] findLongestElements(String[] strings) {
+        int maxLength = findMaxLength();
+        StringBuilder result = new StringBuilder();
+
+        for (String s : strings) {
+            if (s.length() == maxLength) {
+                result.append(s).append(" ");
+            }
+
+        }
+        return result.toString().split(" ");
     }
 
     public static int findMaxLength() {
@@ -153,40 +166,27 @@ public class ArrayIfLoop {
         return maxLength;
     }
 
-    public static String[] findLongestElements() {
-        int maxLength = findMaxLength();
-        StringBuilder result = new StringBuilder();
-
-        for (String s : ArraysForTask.strings) {
-            if (s.length() == maxLength) {
-                result.append(s).append(" ");
-            }
-
-        }
-        return result.toString().split(" ");
-    }
-
     // Hozz létre egy kétdimenziós tömböt a szám adattípusú tömbökből! A kétdimenziós tömb “sorai” legyenek az eredeti tömbök külön-külön.
     // (Az eredményt nem kell kommentként leírnod.)
     public static double[][] createMatrix() {
-        return new double[][]{createDoubleFromByte(), createDoubleFromInt(), ArraysForTask.doubles};
+        return new double[][]{createDouble(ArraysForTask.bytes), createDouble(ArraysForTask.ints), ArraysForTask.doubles};
     }
 
-    public static double[] createDoubleFromByte() {
-        double[] arr = new double[ArraysForTask.bytes.length];
+    public static double[] createDouble(byte[] bytes) {
+        double[] arr = new double[bytes.length];
 
-        for (int i = 0; i < ArraysForTask.bytes.length; i++) {
-            arr[i] = ArraysForTask.bytes[i];
+        for (int i = 0; i < bytes.length; i++) {
+            arr[i] = bytes[i];
         }
 
         return arr;
     }
 
-    public static double[] createDoubleFromInt() {
-        double[] arr = new double[ArraysForTask.ints.length];
+    public static double[] createDouble(int[] ints) {
+        double[] arr = new double[ints.length];
 
-        for (int i = 0; i < ArraysForTask.ints.length; i++) {
-            arr[i] = ArraysForTask.ints[i];
+        for (int i = 0; i < ints.length; i++) {
+            arr[i] = ints[i];
         }
 
         return arr;
@@ -237,11 +237,11 @@ public class ArrayIfLoop {
 
     // Hozz létre egy char[] típusú tömböt a strings nevűből úgy, hogy minden elem minden
     //karakterét egyesével szerepelteted az új tömbben!
-    public static char[] createCharArr() {
-        char[] arr = new char[countStringsLength()];
+    public static char[] createCharArr(String[] strings) {
+        char[] arr = new char[countStringsLength(strings)];
         int j = 0;
 
-        for (String s : ArraysForTask.strings) {
+        for (String s : strings) {
             for (int i = 0; i < s.length(); i++) {
                 arr[j++] = s.charAt(i);
             }
@@ -250,23 +250,23 @@ public class ArrayIfLoop {
         return arr;
     }
 
-    public static int countStringsLength() {
+    public static int countStringsLength(String[] strings) {
         int length = 0;
 
-        for (String s : ArraysForTask.strings) {
+        for (String s : strings) {
             length += s.length();
         }
 
         return length;
     }
 
-    public static char[][] createCharMatrix() {
-        char[][] matrix = new char[ArraysForTask.strings.length][];
+    public static char[][] createCharMatrix(String[] strings) {
+        char[][] matrix = new char[strings.length][];
 
-        for (int i = 0; i < ArraysForTask.strings.length; i++) {
-            matrix[i] = new char[ArraysForTask.strings[i].length()];
-            for (int j = 0; j < ArraysForTask.strings[i].length(); j++) {
-                matrix[i][j] = ArraysForTask.strings[i].charAt(j);
+        for (int i = 0; i < strings.length; i++) {
+            matrix[i] = new char[strings[i].length()];
+            for (int j = 0; j < strings[i].length(); j++) {
+                matrix[i][j] = strings[i].charAt(j);
             }
         }
 
