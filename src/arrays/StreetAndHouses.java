@@ -7,6 +7,7 @@ public class StreetAndHouses {
         // voluntary task: street with houses
 
         int[] street = ArraysBasic.createArray(10, 1, 5);
+
         System.out.println("The street's houses look like...");
         System.out.println(ArraysBasic.arrToString(street, " - "));
 
