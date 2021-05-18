@@ -6,7 +6,7 @@ public class ChessBoard {
 
     public static void main(String[] args) {
 
-        setBoard('T', 'O');
+        setBoard(8,'.', 'O');
         System.out.println(boardToString());
 
     }
@@ -15,18 +15,15 @@ public class ChessBoard {
         return board;
     }
 
-    public static void setBoard(char black, char white) {
-        board = new char[8][8];
+    public static void setBoard(int n, char black, char white) {
+        board = new char[n][n];
         fillBoard(black, white);
     }
 
     public static void fillBoard(char black, char white) {
         for (int i = 0; i < board.length; i++) {
-            boolean rowValue = (i % 2 == 0);
             for (int j = 0; j < board[i].length; j++) {
-                boolean colValue = (j % 2 == 0);
-                board[i][j] = (colValue == rowValue ? black : white);
-                // simplify: board[i][j] = (i % 2 == j % 2 ? black : white);
+                board[i][j] = (i % 2 == j % 2 ? black : white);
             }
         }
     }

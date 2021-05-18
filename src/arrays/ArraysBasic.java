@@ -1,6 +1,7 @@
 package arrays;
 
-import java.util.Arrays;
+import helpers.Helper;
+
 import java.util.Scanner;
 
 public class ArraysBasic {
@@ -16,35 +17,6 @@ public class ArraysBasic {
 
     public static void main(String[] args) {
 
-    }
-
-    public static int generateRandom(int minValue, int maxVale) {
-        return (int) (Math.random() * (maxVale - minValue + 1) + minValue);
-    }
-
-    public static String arrToString(int[] arr) {
-        StringBuilder b = new StringBuilder();
-
-        for (int i = 0; i < arr.length; i++) {
-            b.append(i + 1).append(". element: ").append(arr[i]);
-            b.append("\n");
-        }
-
-        b.setLength(b.length() - 1);
-
-        return b.toString();
-    }
-
-    public static String arrToString(int[] arr, String separator) {
-        StringBuilder b = new StringBuilder();
-
-        for (int j : arr) {
-            b.append(j).append(separator);
-        }
-
-        b.setLength(b.length() - separator.length());
-
-        return b.toString();
     }
 
     // prints the default values of the specified types, because empty arrays contains these values
@@ -70,7 +42,7 @@ public class ArraysBasic {
         int[] numbers = new int[size];
 
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = generateRandom(minValue, maxValue);
+            numbers[i] = Helper.generateRandom(minValue, maxValue);
         }
 
         return numbers;
@@ -100,18 +72,18 @@ public class ArraysBasic {
 
     public static void askUserToChange(int[] arr) {
         System.out.println("Which element do you want to change? Enter the position!");
-        System.out.println(arrToString(arr));
+        System.out.println(Helper.arrToString(arr));
         int index = input.nextInt() - 1;
 
         System.out.println("What should be the new value? Enter a number!");
         arr[index] = input.nextInt();
 
         System.out.println("Done. The new array is now...");
-        System.out.println(arrToString(arr));
+        System.out.println(Helper.arrToString(arr));
     }
 
     public static int getRandomElement(int[] arr) {
-        return arr[generateRandom(0, arr.length - 1)];
+        return arr[Helper.generateRandom(0, arr.length - 1)];
     }
 
     public static int sum(int[] arr) {
