@@ -192,23 +192,6 @@ public class ArrayIfLoop {
         return arr;
     }
 
-    public static String matrixToString(double[][] matrix, String separator) {
-        StringBuilder b = new StringBuilder();
-
-        for (double[] arr : matrix) {
-            for (double d : arr) {
-                b.append(d).append(separator);
-            }
-
-            b.setLength(b.length() - separator.length());
-            b.append("\n");
-        }
-
-        b.setLength(b.length() - 1);
-
-        return b.toString();
-    }
-
     public static int countElementsOfMatrix(double[][] matrix) {
         int counter = 0;
 
