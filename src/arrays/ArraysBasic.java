@@ -16,16 +16,6 @@ public class ArraysBasic {
 
     public static void main(String[] args) {
 
-        // voluntary task: street with houses
-
-        int[] street = createArray(10, 1, 5);
-        System.out.println("The street's houses look like...");
-        System.out.println(arrToString(street, " - "));
-
-        for (int i : street) {
-            System.out.println(getMessage(i));
-        }
-
     }
 
     public static int generateRandom(int minValue, int maxVale) {
@@ -132,10 +122,6 @@ public class ArraysBasic {
         }
 
         return sum;
-    }
-
-    public static String getMessage(int n) {
-        return (n % 2 == 0? "szeretem a páros számot!" : "ó jaj!");
     }
 
 }
