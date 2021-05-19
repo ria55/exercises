@@ -4,8 +4,6 @@ import helpers.Helper;
 
 public class ArrayIfLoopFirst {
 
-
-
     public static void main(String[] args) {
         byte[] bytes = {10, 33, -2, 0, 56, -42, 99, -73, 60};
         char[] chars = {'A', '*', 'c', 'd', 'E', ' '};
@@ -174,6 +172,12 @@ public class ArrayIfLoopFirst {
     }
 
     public static double[][] createMatrix(byte[] bytes, int[] ints, double[] doubles) {
+        /* with more lines of code... :)
+        double[][] toReturn = new double[3][];
+        toReturn[0] = createDouble(bytes);
+        toReturn[1] = createDouble(ints);
+        toReturn[2] = doubles;
+        return toReturn;*/
         return new double[][]{createDouble(bytes), createDouble(ints), doubles};
     }
 
