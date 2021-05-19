@@ -45,7 +45,7 @@ public class IfElseSwitch {
 
     public static String getCharType(char c) {
         for (char ch : vowels) {
-            if (ch == c) {
+            if (ch == Character.toLowerCase(c)) {
                 return "vowel";
             }
         }
@@ -57,8 +57,20 @@ public class IfElseSwitch {
         return "n/a";
     }
 
+    public static String getLetterType(char c) {
+        if (Character.isLetter(c)) {
+            for (char ch : vowels) {
+                if (ch == Character.toLowerCase(c)) {
+                    return "vowel";
+                }
+            }
+            return "consonant";
+        }
+        return "n/a";
+    }
+
     public static String getCharTypeWithSwitch(char c) {
-        return switch (c) {
+        return switch (Character.toLowerCase(c)) {
             case 'a', 'e', 'i', 'o', 'u'
                     -> "vowel";
             case 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'
