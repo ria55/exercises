@@ -257,7 +257,7 @@ public class TestOfTest {
         int counter = 0;
 
         for (int i : arr) {
-            String numToString = String.valueOf(i) + " ";
+            String numToString = "|" + i + "|";
             if (!b.toString().contains(numToString)) {
                 b.append(numToString);
                 counter++;
@@ -277,7 +277,7 @@ public class TestOfTest {
 
         for (int[] arr : matrix) {
             for (int i : arr) {
-                String numToString = String.valueOf(i) + " ";
+                String numToString = "|" + i + "|";
                 if (!b.toString().contains(numToString)) {
                     b.append(numToString);
                     counter++;
