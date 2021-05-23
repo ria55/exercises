@@ -337,22 +337,22 @@ public class TestOfTest {
     /**
      * 10. (segéd metódus)
      */
-    public static int[] findBiggestDifference(int[] sums) {
-        int maxDif = 0;
-        int pos1 = 0, pos2 = 0;
+    public static int[] findBiggestDifference(int[] arr) {
+        int min = arr[0], max = arr[0];
+        int posMin = 0, posMax = 0;
 
-        for (int i = 0; i < sums.length; i++) {
-            for (int j = i + 1; j < sums.length; j++) {
-                int diff = Math.abs(sums[i] - sums[j]);
-                if (diff > maxDif) {
-                    maxDif = diff;
-                    pos1 = i;
-                    pos2 = j;
-                }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+                posMin = i;
+            }
+            if (arr[i] > max) {
+                max = arr[i];
+                posMax = i;
             }
         }
 
-        return new int[]{pos1, pos2};
+        return new int[]{posMin, posMax};
     }
 
 }
