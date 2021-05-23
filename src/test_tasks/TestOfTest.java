@@ -254,15 +254,17 @@ public class TestOfTest {
      */
     public static int countDifferentNumsInArr(int[] arr) {
         StringBuilder b = new StringBuilder();
+        int counter = 0;
 
         for (int i : arr) {
-            String numToString = String.valueOf(i);
+            String numToString = String.valueOf(i) + " ";
             if (!b.toString().contains(numToString)) {
                 b.append(numToString);
+                counter++;
             }
         }
 
-        return b.length();
+        return counter;
     }
 
     /**
@@ -271,17 +273,19 @@ public class TestOfTest {
      */
     public static int countDifferentNumsInArr(int[][] matrix) {
         StringBuilder b = new StringBuilder();
+        int counter = 0;
 
         for (int[] arr : matrix) {
             for (int i : arr) {
-                String numToString = String.valueOf(i);
+                String numToString = String.valueOf(i) + " ";
                 if (!b.toString().contains(numToString)) {
                     b.append(numToString);
+                    counter++;
                 }
             }
         }
 
-        return b.length();
+        return counter;
     }
 
     /**
