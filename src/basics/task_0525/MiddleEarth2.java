@@ -8,7 +8,7 @@ public class MiddleEarth2 {
 
     public static void main(String[] args) {
 
-        System.out.println(canTheyLeaveTheTunnel());
+        System.out.println("Can they leave the tunnel? " + (canTheyLeaveTheTunnel() ? "Yes!" : "Eeeeehhhhrrr..."));
         System.out.println();
 
         int allTreasure = collectTreasure();
@@ -18,8 +18,11 @@ public class MiddleEarth2 {
         // {84, 83, 82, 76, 61, 70, 58, 67, 72, 85};
         // System.out.println(85 * 4 + 84 * 4 + 83 * 4 + 82 * 4 + 76 * 4 + 72 * 4);
 
-        System.out.println("treasure per dwarf: " + countTreasurePerDwarf(allTreasure));
-        System.out.println("treasure for Gandalf: " + countTreasureForGandalf(allTreasure));
+        int treasurePerDwarf = countTreasurePerDwarf(allTreasure);
+        int treasureForGandalf = treasurePerDwarf + countTreasureForGandalf(allTreasure);
+
+        System.out.println("treasure per dwarf: " + treasurePerDwarf);
+        System.out.println("treasure for Gandalf: " + treasureForGandalf);
         System.out.println();
 
         findBilbo();
@@ -31,13 +34,18 @@ public class MiddleEarth2 {
         int i = 0;
 
         while (maybe && i < tunnel.length - 1) {
+            // ha két csapda van, akkor nem tudnak átmenni
             if (tunnel[i][0] == 1 && tunnel[i][1] == 1) {
                 maybe = false;
             }
+            // ha ott, ahol állnak, van csapda ÉS a következő sorban is van csapda...
+            // és a következő sorban máshol van a csapda, mint ott, ahol állnak
+            // - akkor sem tudnak átmenni
             if (tunnel[i][0] != tunnel[i][1] && tunnel[i + 1][0] != tunnel[i + 1][1] &&
                     tunnel[i][0] - tunnel[i + 1][0] != tunnel[i][1] - tunnel[i + 1][1]) {
                 maybe = false;
             }
+
             i++;
         }
 
@@ -63,7 +71,7 @@ public class MiddleEarth2 {
     }
 
     public static int countTreasureForGandalf(int allTreasure) {
-        return countTreasurePerDwarf(allTreasure) + (allTreasure % MiddleEarth1.weights.length);
+        return allTreasure % MiddleEarth1.weights.length;
     }
 
     public static void findBilbo() {
