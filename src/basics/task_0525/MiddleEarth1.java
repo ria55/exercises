@@ -101,15 +101,17 @@ public class MiddleEarth1 {
     }
 
     public static int findNextHighestHill(int current) {
-        if (current == hills.length - 1) {
+        if (current >= hills.length - 1) {
             return current;
         }
+
         int index = current;
         for (int i = current + 1; i < hills.length; i++) {
             if (hills[i] > hills[index]) {
                 index = i;
             }
         }
+
         return index;
     }
 
