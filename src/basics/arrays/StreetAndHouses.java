@@ -1,6 +1,6 @@
-package arrays;
+package basics.arrays;
 
-import helpers.Helper;
+import basics.helpers.Helper;
 
 public class StreetAndHouses {
 

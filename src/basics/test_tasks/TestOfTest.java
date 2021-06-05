@@ -1,4 +1,4 @@
-package test_tasks;
+package basics.test_tasks;
 
 public class TestOfTest {
 

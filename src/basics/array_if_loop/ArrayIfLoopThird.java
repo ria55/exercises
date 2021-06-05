@@ -1,4 +1,4 @@
-package array_if_loop;
+package basics.array_if_loop;
 
 public class ArrayIfLoopThird {
 

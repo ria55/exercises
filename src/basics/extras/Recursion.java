@@ -1,4 +1,4 @@
-package extras;
+package basics.extras;
 
 /**
  * Recursive methods to solve problems.<br><br>

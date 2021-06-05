@@ -1,6 +1,6 @@
-package arrays;
+package basics.arrays;
 
-import helpers.Helper;
+import basics.helpers.Helper;
 
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ public class ArraysBasic {
 
     }
 
-    // prints the default values of the specified types, because empty arrays contains these values
+    // prints the default values of the specified types, because empty basics.arrays contains these values
     public static void printFirstAndLast() {
         System.out.println("ints first and last elements: " + ints[0] + ", " + ints[ints.length - 1]);
         System.out.println("floats first and last elements: " + floats[0] + ", " + floats[floats.length - 1]);

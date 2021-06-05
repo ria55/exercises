@@ -1,6 +1,6 @@
-package array_if_loop;
+package basics.array_if_loop;
 
-import helpers.Helper;
+import basics.helpers.Helper;
 
 public class ArrayIfLoopFirst {
 

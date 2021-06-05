@@ -1,4 +1,4 @@
-package helpers;
+package basics.helpers;
 
 public class Helper {
 

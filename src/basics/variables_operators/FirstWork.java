@@ -1,4 +1,4 @@
-package variables_operators;
+package basics.variables_operators;
 
 import java.util.Scanner;
 

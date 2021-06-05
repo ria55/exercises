@@ -1,4 +1,4 @@
-package if_else_switch;
+package basics.if_else_switch;
 
 public class IfElseSwitch {
 
